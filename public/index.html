@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Study Room</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Virtual Study Room</h1>
+            <div class="auth-buttons">
+                <button id="loginBtn">Login</button>
+                <button id="registerBtn">Register</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="room-creation">
+                <input type="text" id="roomName" placeholder="Enter room name">
+                <button id="createRoomBtn">Create Room</button>
+            </div>
+
+            <div class="rooms-list">
+                <h2>Available Rooms</h2>
+                <div id="roomsContainer"></div>
+            </div>
+
+            <div class="study-room" id="studyRoom" style="display: none;">
+                <div class="whiteboard-container">
+                    <div class="whiteboard-tools">
+                        <button id="clearWhiteboard">Clear</button>
+                        <input type="color" id="colorPicker" value="#000000">
+                        <input type="range" id="brushSize" min="1" max="10" value="2">
+                    </div>
+                    <canvas id="whiteboard"></canvas>
+                </div>
+                <div class="chat-container">
+                    <div class="timer-controls">
+                        <input type="number" id="timerMinutes" min="1" max="120" value="25">
+                        <button id="startTimer">Start Timer</button>
+                        <div id="timer">25:00</div>
+                    </div>
+                    <div class="messages" id="messages"></div>
+                    <div class="message-input">
+                        <input type="text" id="messageInput" placeholder="Type your message...">
+                        <button id="sendMessageBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
